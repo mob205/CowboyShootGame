@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     public const float Left = 0;
     public const float Right = 1;
 
@@ -14,6 +16,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

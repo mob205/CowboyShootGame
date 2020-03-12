@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    [SerializeField] Transform pivot;
     Camera mainCamera;
     PlayerController player;
 
@@ -15,7 +14,7 @@ public class GunController : MonoBehaviour
 
     void Start()
     {
-        player = GetComponentInParent<PlayerController>();
+        player = PlayerController.instance;
         mainCamera = Camera.main;
         startingY = transform.eulerAngles.y;
         startingZ = transform.eulerAngles.z;
@@ -23,19 +22,7 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
-        RotatePivot();
         RotateGun();
-    }
-    void RotatePivot()
-    {
-        var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        var pivotPos = pivot.position;
-
-        mousePos.x -= pivotPos.x;
-        mousePos.y -= pivotPos.y;
-
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        pivot.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
     void RotateGun()
     {
