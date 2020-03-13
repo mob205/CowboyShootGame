@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         ProcessMovement();
-        ProcessAnimations();
+        if(animator != null)
+            ProcessAnimations();
     }
     void ProcessMovement()
     {
