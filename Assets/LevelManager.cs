@@ -6,14 +6,15 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
     
-    public float healthMod = 1;
-    public float damageMod = 1;
-    public float enemySpawnMod = 1;
+    public float healthMod;
+    public float damageMod;
+    public float enemySpawnMod;
 
     public const float healthIncrease = 0.2f;
-    public const float damageIncrease = 0;
+    public const float damageIncrease = 0.15f;
+    public const float enemySpawnIncrease = 0.15f;
 
-    int level;
+    int level = 1;
 
     private void Awake()
     {
@@ -21,11 +22,27 @@ public class LevelManager : MonoBehaviour
     }
     void Start()
     {
+        CalculateValues();
+        StartLevel();
+    }
+    void StartLevel()
+    {
+        EnemySpawner.instance.StartSpawning();
+    }
+    void CalculateValues()
+    {
+        damageMod = damageIncrease * (level - 1) + 1;
+        healthMod = healthIncrease * (level - 1) + 1;
+        enemySpawnMod = enemySpawnIncrease * (level - 1) + 1;
+    }
+    public void EndLevel()
+    {
+        level += 1;
         
     }
-    float CalculateValue(float difference)
+    public int GetLevel()
     {
-        return difference * (level - 1) + 1;
+        return level;
     }
     void Update()
     {

@@ -30,7 +30,8 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        health = baseHealth;
+        health = baseHealth * LevelManager.instance.healthMod;
+        damage *= LevelManager.instance.damageMod;
     }
 
     virtual protected void Update()
@@ -76,7 +77,7 @@ public class Enemy : MonoBehaviour
         //    enemy.GetComponent<Enemy>().Damage(explosionDamage);
         //}
 
-        EnemySpawner.instance.AlertDeath();
+        EnemySpawner.instance.OnEnemyDeath();
         deathParticles.transform.parent = null;
         deathParticles.Play();
         Destroy(deathParticles.gameObject, deathParticles.main.duration);

@@ -10,9 +10,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float minSpawnTime = 0.5f;
     [SerializeField] float maxSpawnTime = 3f;
     [SerializeField] int maxEnemies = 10;
+    [SerializeField] float defaultEnemyAmount = 15;
     [SerializeField] GameObject enemyPrefab;
 
-    int enemyCount;
+    int currentEnemyCount;
 
     // Start is called before the first frame update
     private void Awake()
@@ -21,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(SpawnEnemies());
+
     }
 
     // Update is called once per frame
@@ -29,14 +30,25 @@ public class EnemySpawner : MonoBehaviour
     {
         
     }
-    IEnumerator SpawnEnemies()
+    public void StartSpawning()
     {
+        StartCoroutine(SpawnEnemies(defaultEnemyAmount * LevelManager.instance.enemySpawnMod));
+    }
+    IEnumerator SpawnEnemies(float amount)
+    {
+        var enemiesSpawned = 0;
         while (true)
         {
-            if(enemyCount < maxEnemies)
+            if(currentEnemyCount < maxEnemies && enemiesSpawned < amount)
             {
                 Instantiate(enemyPrefab, GetRandomPosition(), Quaternion.identity);
-                enemyCount++;
+                currentEnemyCount++;
+                enemiesSpawned++;
+            }
+            if(enemiesSpawned >= amount && currentEnemyCount == 0)
+            {
+                LevelManager.instance.EndLevel();
+                break;
             }
             yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
         }
@@ -47,8 +59,8 @@ public class EnemySpawner : MonoBehaviour
         Vector2 randomPosition = new Vector2(Random.Range(-box.size.x / 2, box.size.x), Random.Range(-box.size.y / 2, box.size.y / 2));
         return (Vector2)box.transform.position + randomPosition;
     }
-    public void AlertDeath()
+    public void OnEnemyDeath()
     {
-        enemyCount--;
+        currentEnemyCount--;
     }
 }
