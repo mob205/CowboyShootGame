@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4218352565966666570}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.258, y: 0.089, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4218352567149739329}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &4218352566236387856
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4218352566889762403}
   m_Layer: 0
   m_Name: Cowboy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -323,6 +323,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114529341054562468, guid: f77c7165bb0b920428a93527ff241ecd,
     type: 3}
   bulletSpawn: {fileID: 4218352565966666569}
-  damage: 0
-  bulletSpeed: 5
-  reloadTime: 0
+  damage: 10
+  bulletSpeed: 7
+  reloadTime: 1
+  bulletLifetime: 5
