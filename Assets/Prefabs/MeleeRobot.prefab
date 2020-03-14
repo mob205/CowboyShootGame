@@ -4773,7 +4773,7 @@ GameObject:
   - component: {fileID: 522200962}
   m_Layer: 8
   m_Name: MeleeRobot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4857,9 +4857,11 @@ MonoBehaviour:
   explosionLayers:
     serializedVersion: 2
     m_Bits: 256
-  baseHealth: 18
+  baseHealth: 15
   moveSpeed: 3
   deathExplosionRadius: 1
+  explosionDamage: 10
+  damage: 10
 --- !u!50 &4884129029265684724
 Rigidbody2D:
   serializedVersion: 4
@@ -4868,7 +4870,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4884129029265684721}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

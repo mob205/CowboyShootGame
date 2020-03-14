@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour
     public const float Right = 1;
 
     [SerializeField] float playerSpeed;
+    [SerializeField] float baseHealth;
+    [SerializeField] float invulnTime;
+
+    float currentHealth;
+    bool isInvuln;
 
     Camera mainCamera;
     Rigidbody2D rb;
@@ -25,6 +30,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mainCamera = Camera.main;
         animator = GetComponent<Animator>();
+        currentHealth = baseHealth;
     }
 
     void Update()
@@ -32,6 +38,32 @@ public class PlayerController : MonoBehaviour
         ProcessMovement();
         if(animator != null)
             ProcessAnimations();
+    }
+    
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            var enemy = collision.GetComponent<Enemy>();
+            Damage(enemy.damage);
+        }
+    }
+    void Damage(float amount)
+    {
+        if (isInvuln) { return; }
+        currentHealth -= amount;
+        if(currentHealth <= 0)
+        {
+            Debug.Log("ded");
+        }
+        HealthBar.instance.SetHealthBar(currentHealth / baseHealth);
+        StartCoroutine(ApplyInvulnerability());
+    }
+    IEnumerator ApplyInvulnerability()
+    {
+        isInvuln = true;
+        yield return new WaitForSeconds(invulnTime);
+        isInvuln = false;
     }
     void ProcessMovement()
     {

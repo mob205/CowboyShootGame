@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] BoxCollider2D[] spawnAreas;
     [SerializeField] float minSpawnTime = 0.5f;
     [SerializeField] float maxSpawnTime = 3f;
+    [SerializeField] int maxEnemies = 10;
     [SerializeField] GameObject enemyPrefab;
 
     int enemyCount;
@@ -32,9 +33,11 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            
-            Instantiate(enemyPrefab, GetRandomPosition(), Quaternion.identity);
-            enemyCount++;
+            if(enemyCount < maxEnemies)
+            {
+                Instantiate(enemyPrefab, GetRandomPosition(), Quaternion.identity);
+                enemyCount++;
+            }
             yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
         }
     }

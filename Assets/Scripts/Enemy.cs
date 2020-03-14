@@ -13,7 +13,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float baseHealth;
     [SerializeField] float moveSpeed;
     [SerializeField] float deathExplosionRadius;
-    [SerializeField] float explosionDamage;
+    [SerializeField] float explosionDamage = 10;
+    [SerializeField] public float damage = 10f;
 
 
 
@@ -39,9 +40,7 @@ public class Enemy : MonoBehaviour
     virtual protected void Move()
     {
         var direction = (PlayerController.instance.transform.position - transform.position).normalized;
-        transform.Translate(direction * moveSpeed * Time.deltaTime);
-        
-        //rb.MovePosition(Vector2.Lerp(transform.position, PlayerController.instance.transform.position, moveSpeed * Time.deltaTime));
+        rb.MovePosition(transform.position + (direction * moveSpeed * Time.deltaTime));
         
         if(PlayerController.instance.transform.position.x < transform.position.x)
         {
@@ -62,7 +61,7 @@ public class Enemy : MonoBehaviour
     }
     virtual public void Damage(float damage)
     {
-        Debug.Log("damaged for " + damage);
+        if (health <= 0) { return; }
         health -= damage;
         if(health <= 0)
         {
@@ -71,11 +70,11 @@ public class Enemy : MonoBehaviour
     }
     virtual protected void Die()
     {
-        var hitEnemies = Physics2D.OverlapCircleAll(transform.position, deathExplosionRadius, explosionLayers);
-        foreach(Collider2D enemy in hitEnemies)
-        {
-            enemy.GetComponent<Enemy>().Damage(explosionDamage);
-        }
+        //var hitEnemies = Physics2D.OverlapCircleAll(transform.position, deathExplosionRadius, explosionLayers);
+        //foreach(Collider2D enemy in hitEnemies)
+        //{
+        //    enemy.GetComponent<Enemy>().Damage(explosionDamage);
+        //}
 
         EnemySpawner.instance.AlertDeath();
         deathParticles.transform.parent = null;
@@ -83,8 +82,8 @@ public class Enemy : MonoBehaviour
         Destroy(deathParticles.gameObject, deathParticles.main.duration);
         Destroy(gameObject);
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, deathExplosionRadius);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.DrawWireSphere(transform.position, deathExplosionRadius);
+    //}
 }
