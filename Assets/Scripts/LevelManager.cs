@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
+
+    [SerializeField] float sceneChangeDelay = 1f;
     
     public float healthMod;
     public float damageMod;
@@ -18,16 +22,31 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     void Start()
     {
         CalculateValues();
-        StartLevel();
+        gameObject.SetActive(true);
     }
-    void StartLevel()
+    public void StartLevel()
     {
-        EnemySpawner.instance.StartSpawning();
+        CalculateValues();
+        instance.StartCoroutine(LoadLevel());
+    }
+    public IEnumerator LoadLevel()
+    {
+        FadeToBlack.instance.Fade(1f, 1f);
+        yield return new WaitForSeconds(sceneChangeDelay);
+        SceneManager.LoadScene("Level");
     }
     void CalculateValues()
     {
@@ -35,10 +54,12 @@ public class LevelManager : MonoBehaviour
         healthMod = healthIncrease * (level - 1) + 1;
         enemySpawnMod = enemySpawnIncrease * (level - 1) + 1;
     }
-    public void EndLevel()
+    public IEnumerator EndLevel()
     {
         level += 1;
-        
+        FadeToBlack.instance.Fade(1f, 1f);
+        yield return new WaitForSeconds(sceneChangeDelay);
+        SceneManager.LoadScene("LevelMenu");
     }
     public int GetLevel()
     {

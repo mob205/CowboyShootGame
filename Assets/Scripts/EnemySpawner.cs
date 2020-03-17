@@ -22,10 +22,8 @@ public class EnemySpawner : MonoBehaviour
     }
     void Start()
     {
-
+        StartSpawning();
     }
-
-    // Update is called once per frame
     void Update()
     {
         
@@ -47,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
             }
             if(enemiesSpawned >= amount && currentEnemyCount == 0)
             {
-                LevelManager.instance.EndLevel();
+                StartCoroutine(LevelManager.instance.EndLevel());
                 break;
             }
             yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
