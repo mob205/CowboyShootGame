@@ -30,14 +30,14 @@ public class EnemySpawner : MonoBehaviour
     }
     public void StartSpawning()
     {
-        StartCoroutine(SpawnEnemies(defaultEnemyAmount * LevelManager.instance.enemySpawnMod));
+        StartCoroutine(SpawnEnemies(defaultEnemyAmount + LevelManager.instance.enemyPerLevelMod));
     }
     IEnumerator SpawnEnemies(float amount)
     {
         var enemiesSpawned = 0;
         while (true)
         {
-            if(currentEnemyCount < maxEnemies && enemiesSpawned < amount)
+            if(currentEnemyCount < (maxEnemies * LevelManager.instance.maxEnemySpawnMod) && enemiesSpawned < amount)
             {
                 Instantiate(enemyPrefab, GetRandomPosition(), Quaternion.identity);
                 currentEnemyCount++;
@@ -54,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
     private Vector2 GetRandomPosition()
     {
         var box = spawnAreas[Random.Range(0, spawnAreas.Length)];
-        Vector2 randomPosition = new Vector2(Random.Range(-box.size.x / 2, box.size.x), Random.Range(-box.size.y / 2, box.size.y / 2));
+        Vector2 randomPosition = new Vector2(Random.Range(-box.size.x / 2, box.size.x / 2), Random.Range(-box.size.y / 2, box.size.y / 2));
         return (Vector2)box.transform.position + randomPosition;
     }
     public void OnEnemyDeath()

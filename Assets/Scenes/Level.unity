@@ -2697,7 +2697,7 @@ MonoBehaviour:
   minSpawnTime: 0.5
   maxSpawnTime: 1.5
   maxEnemies: 10
-  defaultEnemyAmount: 1
+  defaultEnemyAmount: 5
   enemyPrefab: {fileID: 4884129029265684721, guid: 5e03df7ef66e32a43bea1457f1d39f9c,
     type: 3}
 --- !u!4 &684823078
@@ -6068,6 +6068,11 @@ PrefabInstance:
       propertyPath: invulnTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4218352566889762405, guid: fc890dd14cc1ccd41adbda18645f9e7c,
+        type: 3}
+      propertyPath: playerSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4218352566889762407, guid: fc890dd14cc1ccd41adbda18645f9e7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6122,6 +6127,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218352567149739328, guid: fc890dd14cc1ccd41adbda18645f9e7c,
+        type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218352567149739328, guid: fc890dd14cc1ccd41adbda18645f9e7c,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218352567149739328, guid: fc890dd14cc1ccd41adbda18645f9e7c,
+        type: 3}
+      propertyPath: reloadTime
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc890dd14cc1ccd41adbda18645f9e7c, type: 3}

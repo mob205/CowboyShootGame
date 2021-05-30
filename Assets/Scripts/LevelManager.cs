@@ -12,13 +12,16 @@ public class LevelManager : MonoBehaviour
     
     [HideInInspector] public float healthMod;
     [HideInInspector] public float damageMod;
-    [HideInInspector] public float enemySpawnMod;
+    [HideInInspector] public float maxEnemySpawnMod;
+    [HideInInspector] public float enemyPerLevelMod;
 
     public const float healthIncrease = 0.2f;
     public const float damageIncrease = 0.15f;
-    public const float enemySpawnIncrease = 0.15f;
+    public const float maxEnemySpawnIncrease = 0.25f;
+    public const int enemyPerLevelIncrease = 1;
 
     int level = 1;
+    Coroutine loadLevel;
 
     private void Awake()
     {
@@ -38,20 +41,23 @@ public class LevelManager : MonoBehaviour
     }
     public void StartLevel()
     {
+        if (loadLevel != null) { return; }
         CalculateValues();
-        instance.StartCoroutine(LoadLevel());
+        loadLevel = instance.StartCoroutine(LoadLevel());
     }
     IEnumerator LoadLevel()
     {
         FadeToBlack.instance.Fade(1f, 1f);
         yield return new WaitForSeconds(sceneChangeDelay);
         SceneManager.LoadScene("Level");
+        loadLevel = null;
     }
     void CalculateValues()
     {
-        damageMod = damageIncrease * (instance.level - 1) + 1;
+        instance.damageMod = damageIncrease * (instance.level - 1) + 1;
         instance.healthMod = healthIncrease * (instance.level - 1) + 1;
-        enemySpawnMod = enemySpawnIncrease * (instance.level - 1) + 1;
+        instance.maxEnemySpawnMod = maxEnemySpawnIncrease * (instance.level - 1) + 1;
+        instance.enemyPerLevelMod = enemyPerLevelIncrease * (instance.level - 1);
     }
     public IEnumerator EndLevel()
     {

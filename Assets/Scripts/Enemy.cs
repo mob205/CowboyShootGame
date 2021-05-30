@@ -12,8 +12,8 @@ public class Enemy : MonoBehaviour
     [Header("Stats")]
     [SerializeField] float baseHealth;
     [SerializeField] float moveSpeed;
-    [SerializeField] float deathExplosionRadius;
-    [SerializeField] float explosionDamage = 10;
+    //[SerializeField] float deathExplosionRadius;
+    //[SerializeField] float explosionDamage = 10;
     [SerializeField] public float damage = 10f;
 
 

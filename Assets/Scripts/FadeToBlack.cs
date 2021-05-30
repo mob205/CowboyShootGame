@@ -7,6 +7,9 @@ public class FadeToBlack : MonoBehaviour
     public static FadeToBlack instance;
 
     CanvasGroup panel;
+
+    Coroutine fadeIn;
+    Coroutine fadeOut;
     private void Awake()
     {
         if (instance == null)
@@ -25,8 +28,13 @@ public class FadeToBlack : MonoBehaviour
     }
     public void Fade(float fadeSpeed, float fadeDuration)
     {
-        StartCoroutine(FadeIn(fadeSpeed));
-        StartCoroutine(FadeOut(fadeSpeed, fadeDuration));
+        if(fadeIn != null && fadeOut != null)
+        {
+            StopCoroutine(fadeIn);
+            StopCoroutine(fadeOut);
+        }
+        fadeIn = StartCoroutine(FadeIn(fadeSpeed));
+        fadeOut = StartCoroutine(FadeOut(fadeSpeed, fadeDuration));
     }
     IEnumerator FadeIn(float fadeSpeed)
     {
