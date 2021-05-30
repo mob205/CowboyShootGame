@@ -10,9 +10,9 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] float sceneChangeDelay = 1f;
     
-    public float healthMod;
-    public float damageMod;
-    public float enemySpawnMod;
+    [HideInInspector] public float healthMod;
+    [HideInInspector] public float damageMod;
+    [HideInInspector] public float enemySpawnMod;
 
     public const float healthIncrease = 0.2f;
     public const float damageIncrease = 0.15f;
@@ -35,14 +35,13 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         CalculateValues();
-        gameObject.SetActive(true);
     }
     public void StartLevel()
     {
         CalculateValues();
         instance.StartCoroutine(LoadLevel());
     }
-    public IEnumerator LoadLevel()
+    IEnumerator LoadLevel()
     {
         FadeToBlack.instance.Fade(1f, 1f);
         yield return new WaitForSeconds(sceneChangeDelay);
@@ -50,9 +49,9 @@ public class LevelManager : MonoBehaviour
     }
     void CalculateValues()
     {
-        damageMod = damageIncrease * (level - 1) + 1;
-        healthMod = healthIncrease * (level - 1) + 1;
-        enemySpawnMod = enemySpawnIncrease * (level - 1) + 1;
+        damageMod = damageIncrease * (instance.level - 1) + 1;
+        instance.healthMod = healthIncrease * (instance.level - 1) + 1;
+        enemySpawnMod = enemySpawnIncrease * (instance.level - 1) + 1;
     }
     public IEnumerator EndLevel()
     {

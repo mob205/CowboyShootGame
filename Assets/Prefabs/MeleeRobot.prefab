@@ -4858,7 +4858,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   baseHealth: 15
-  moveSpeed: 3
+  moveSpeed: 6
   deathExplosionRadius: 1
   explosionDamage: 10
   damage: 10
