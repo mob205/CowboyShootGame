@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour
     public const int enemyPerLevelIncrease = 1;
 
     int level = 1;
-    Coroutine loadLevel;
+    Coroutine loadLevelCorout;
 
     private void Awake()
     {
@@ -41,16 +41,16 @@ public class LevelManager : MonoBehaviour
     }
     public void StartLevel()
     {
-        if (loadLevel != null) { return; }
+        if (loadLevelCorout != null) { return; }
         CalculateValues();
-        loadLevel = instance.StartCoroutine(LoadLevel());
+        loadLevelCorout = instance.StartCoroutine(LoadLevel());
     }
     IEnumerator LoadLevel()
     {
         FadeToBlack.instance.Fade(1f, 1f);
         yield return new WaitForSeconds(sceneChangeDelay);
         SceneManager.LoadScene("Level");
-        loadLevel = null;
+        loadLevelCorout = null;
     }
     void CalculateValues()
     {

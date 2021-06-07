@@ -268,6 +268,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27400235}
   m_CullTransparentMesh: 0
+--- !u!114 &140948684 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3821974388691082370, guid: a7546beeafc3f5e41a2691e87db59f36,
+    type: 3}
+  m_PrefabInstance: {fileID: 3821974388831692878}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179006e8a6acf0247940be80fa49e34e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &286202337
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +670,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 513595174}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 140948684}
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Shop
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &513595174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1925,6 +1948,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cfa514b38998e24f9abcbbdca7585d8, type: 3}
+--- !u!1001 &3821974388831692878
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3821974388691082371, guid: a7546beeafc3f5e41a2691e87db59f36,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 673.2081
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821974388691082371, guid: a7546beeafc3f5e41a2691e87db59f36,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 280.51443
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821974388691082371, guid: a7546beeafc3f5e41a2691e87db59f36,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.6142235
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821974388691082371, guid: a7546beeafc3f5e41a2691e87db59f36,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821974388691082371, guid: a7546beeafc3f5e41a2691e87db59f36,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821974388691082371, guid: a7546beeafc3f5e41a2691e87db59f36,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821974388691082371, guid: a7546beeafc3f5e41a2691e87db59f36,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821974388691082371, guid: a7546beeafc3f5e41a2691e87db59f36,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821974388691082371, guid: a7546beeafc3f5e41a2691e87db59f36,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821974388691082371, guid: a7546beeafc3f5e41a2691e87db59f36,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821974388691082371, guid: a7546beeafc3f5e41a2691e87db59f36,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821974388691082373, guid: a7546beeafc3f5e41a2691e87db59f36,
+        type: 3}
+      propertyPath: m_Name
+      value: SceneLoader
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7546beeafc3f5e41a2691e87db59f36, type: 3}
 --- !u!4 &5725749855851373304
 Transform:
   m_ObjectHideFlags: 0
@@ -1954,7 +2046,8 @@ MonoBehaviour:
   sceneChangeDelay: 1
   healthMod: 1
   damageMod: 1
-  enemySpawnMod: 1
+  maxEnemySpawnMod: 0
+  enemyPerLevelMod: 0
 --- !u!1 &5725749855851373310
 GameObject:
   m_ObjectHideFlags: 0
