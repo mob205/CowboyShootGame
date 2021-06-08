@@ -511,10 +511,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgrade: {fileID: 0}
-  costs: 00000000
   image: {fileID: 21300000, guid: 1bfd33b5dce74e748918a4b20513534e, type: 3}
   upgName: OUT OF STOCK
   desc: NO ITEMS HERE. SORRY!
+  cost: 0
+  level: 0
+  costText: {fileID: 8676531655512632008}
+  itemImage: {fileID: 8676531656606701280}
 --- !u!61 &630420749076203694
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -726,4 +729,15 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8676531657183269138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114803555778296554}
+        m_MethodName: BuyUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

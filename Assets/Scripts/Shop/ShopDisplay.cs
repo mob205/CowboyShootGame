@@ -10,6 +10,7 @@ public class ShopDisplay : MonoBehaviour
     [SerializeField] TextMeshProUGUI dispName;
     [SerializeField] TextMeshProUGUI dispDesc;
     [SerializeField] TextMeshProUGUI dispPrice;
+    [SerializeField] TextMeshProUGUI dispLevel;
 
     // Update is called once per frame
     void Update()
@@ -28,7 +29,8 @@ public class ShopDisplay : MonoBehaviour
                 dispImage.sprite = slot.image;
                 dispName.text = slot.upgName;
                 dispDesc.text = slot.desc;
-                dispPrice.text = slot.costs[0].ToString();
+                dispPrice.text = slot.cost.ToString();
+                dispLevel.text = "Level " + slot.level.ToString();
             }
         }
     }
