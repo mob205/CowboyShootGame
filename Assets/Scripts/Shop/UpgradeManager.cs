@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
-
     public static UpgradeManager instance;
     private void Awake()
     {
@@ -18,17 +17,18 @@ public class UpgradeManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-    List<Upgrade> upgrades = new List<Upgrade>();
 
-    public void AddUpgrade(Upgrade upgrade)
+    Dictionary<Upgrade, int> upgrades = new Dictionary<Upgrade, int>();
+
+    public void AddUpgrade(Upgrade upgrade, int level)
     {
-        upgrades.Add(upgrade);
+        upgrades[upgrade] = level;
     }
     public void ApplyUpgrades()
     {
-        foreach(Upgrade upgrade in upgrades)
+        foreach(Upgrade upgrade in upgrades.Keys)
         {
-            upgrade.ApplyUpgrade();
+            upgrade.ApplyUpgrade(upgrades[upgrade]);
         }
     }
 }

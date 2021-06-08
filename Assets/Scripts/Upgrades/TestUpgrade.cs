@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TestUpgrade : Upgrade
 {
-    public override void ApplyUpgrade()
+    public override void ApplyUpgrade(int level)
     {
-        Debug.Log("OVERRIDE");
+        Debug.Log("Applying upgrade with a level of " + level);
     }
 }

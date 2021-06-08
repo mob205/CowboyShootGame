@@ -10,8 +10,8 @@ public class UpgradeSlot : MonoBehaviour
     public Sprite image;
     public string upgName = "OUT OF STOCK";
     public string desc = "NO ITEMS HERE. SORRY!";
+    public int level = 1;
     [HideInInspector] public int cost;
-    [HideInInspector] public int level;
 
     [SerializeField] TextMeshProUGUI costText;
     [SerializeField] Image itemImage;
@@ -19,8 +19,7 @@ public class UpgradeSlot : MonoBehaviour
     {
         if (upgrade)
         {
-            cost = upgrade.cost;
-            level = upgrade.level;
+            cost = upgrade.GetCost(level);
         }
         costText.text = cost.ToString();
         itemImage.sprite = image;
@@ -31,7 +30,9 @@ public class UpgradeSlot : MonoBehaviour
         if(CoinCounter.coins >= cost)
         {
             CoinCounter.coins -= cost;
-            UpgradeManager.instance.AddUpgrade(upgrade);
+            UpgradeManager.instance.AddUpgrade(upgrade, level);
+            level++;
+            cost = upgrade.GetCost(level);
         }
     }
     // Update is called once per frame

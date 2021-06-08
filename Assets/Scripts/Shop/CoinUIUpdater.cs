@@ -5,7 +5,7 @@ using TMPro;
 
 public class CoinUIUpdater : MonoBehaviour
 {
-    private void Start()
+    private void Update()
     {
         GetComponent<TextMeshProUGUI>().text = CoinCounter.coins.ToString();
     }

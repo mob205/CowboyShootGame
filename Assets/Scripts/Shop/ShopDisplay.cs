@@ -12,10 +12,20 @@ public class ShopDisplay : MonoBehaviour
     [SerializeField] TextMeshProUGUI dispPrice;
     [SerializeField] TextMeshProUGUI dispLevel;
 
+    UpgradeSlot slot;
     // Update is called once per frame
     void Update()
     {
         CheckSelection();
+        UpdateDisplay();
+        DebugAddCoins();
+    }
+    void DebugAddCoins()
+    {
+        if (Debug.isDebugBuild && Input.GetKeyDown(KeyCode.Z))
+        {
+            CoinCounter.coins += 1000;
+        }
     }
     void CheckSelection()
     {
@@ -25,13 +35,21 @@ public class ShopDisplay : MonoBehaviour
             var hit = Physics2D.Raycast(mousePos, Vector3.forward, Mathf.Infinity);
             if (hit)
             {
-                var slot = hit.collider.GetComponent<UpgradeSlot>();
-                dispImage.sprite = slot.image;
-                dispName.text = slot.upgName;
-                dispDesc.text = slot.desc;
-                dispPrice.text = slot.cost.ToString();
-                dispLevel.text = "Level " + slot.level.ToString();
+                slot = hit.collider.GetComponent<UpgradeSlot>();
+                UpdateDisplay();
             }
+        }
+    }
+
+    void UpdateDisplay()
+    {
+        if (slot)
+        {
+            dispImage.sprite = slot.image;
+            dispName.text = slot.upgName;
+            dispDesc.text = slot.desc;
+            dispPrice.text = slot.cost.ToString();
+            dispLevel.text = "Level " + slot.level.ToString();
         }
     }
 }

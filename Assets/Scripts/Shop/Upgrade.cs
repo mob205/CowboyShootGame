@@ -4,17 +4,14 @@ using UnityEngine;
 
 public abstract class Upgrade : MonoBehaviour
 {
-    public int level = 1;
-    public int cost
-    {
-        get
-        {
-            return costFactor * level;
-        }
-    }
     public int costFactor;
+    public int maxLevel = 99;
 
-    public virtual void ApplyUpgrade()
+    public virtual int GetCost(int level)
+    {
+        return costFactor * level;
+    }
+    public virtual void ApplyUpgrade(int level)
     {
         
     }
