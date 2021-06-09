@@ -17,14 +17,18 @@ public class UpgradeSlot : MonoBehaviour
     [SerializeField] Image itemImage;
     void Start()
     {
+        UpdateCost();
+        itemImage.sprite = image;
+    }
+    
+    void UpdateCost()
+    {
         if (upgrade)
         {
             cost = upgrade.GetCost(level);
         }
         costText.text = cost.ToString();
-        itemImage.sprite = image;
     }
-    
     public void BuyUpgrade()
     {
         if(CoinCounter.coins >= cost)
@@ -32,7 +36,7 @@ public class UpgradeSlot : MonoBehaviour
             CoinCounter.coins -= cost;
             UpgradeManager.instance.AddUpgrade(upgrade, level);
             level++;
-            cost = upgrade.GetCost(level);
+            UpdateCost();
         }
     }
     // Update is called once per frame

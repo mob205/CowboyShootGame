@@ -51,6 +51,10 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(sceneChangeDelay);
         SceneManager.LoadScene("Level");
         loadLevelCorout = null;
+        if (UpgradeManager.instance)
+        {
+            UpgradeManager.instance.ApplyUpgrades();
+        }
     }
     void CalculateValues()
     {
