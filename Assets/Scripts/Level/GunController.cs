@@ -9,9 +9,9 @@ public class GunController : MonoBehaviour
     [SerializeField] Transform bulletSpawn;
 
     [Header("Stats")]
-    [SerializeField] float damage;
-    [SerializeField] float bulletSpeed;
-    [SerializeField] float reloadTime;
+    public float damage;
+    public float bulletSpeed;
+    public float reloadTime;
     [SerializeField] float bulletLifetime;
 
     Camera mainCamera;
@@ -29,6 +29,7 @@ public class GunController : MonoBehaviour
         mainCamera = Camera.main;
         startingY = transform.eulerAngles.y;
         startingZ = transform.eulerAngles.z;
+        Debug.Log("Gun controller started.");
     }
 
     void Update()

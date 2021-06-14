@@ -7,6 +7,6 @@ public class CoinUIUpdater : MonoBehaviour
 {
     private void Update()
     {
-        GetComponent<TextMeshProUGUI>().text = CoinCounter.coins.ToString();
+        GetComponent<TextMeshProUGUI>().text = CoinCounter.Coins.ToString();
     }
 }

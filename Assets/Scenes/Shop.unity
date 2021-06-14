@@ -1951,7 +1951,29 @@ PrefabInstance:
     - target: {fileID: 114803555778296554, guid: 12dca67b743a0d240beff9f939488edd,
         type: 3}
       propertyPath: level
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803555778296554, guid: 12dca67b743a0d240beff9f939488edd,
+        type: 3}
+      propertyPath: upgrade
+      value: 
+      objectReference: {fileID: 5115795841739135, guid: ae3971ca54a1d5842a6d104d84d1b38a,
+        type: 3}
+    - target: {fileID: 114803555778296554, guid: 12dca67b743a0d240beff9f939488edd,
+        type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 21300000, guid: 43c7aff11e2b0774da5e8af738541a34,
+        type: 3}
+    - target: {fileID: 114803555778296554, guid: 12dca67b743a0d240beff9f939488edd,
+        type: 3}
+      propertyPath: upgName
+      value: FASTER SHOOTING
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803555778296554, guid: 12dca67b743a0d240beff9f939488edd,
+        type: 3}
+      propertyPath: desc
+      value: TAKE LESS TIME BETWEEN SHOTS
       objectReference: {fileID: 0}
     - target: {fileID: 8676531655512632008, guid: 12dca67b743a0d240beff9f939488edd,
         type: 3}
@@ -1977,7 +1999,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 67ceaf5e6aba07345a13283ae3b65317,
+      objectReference: {fileID: 21300000, guid: 1bfd33b5dce74e748918a4b20513534e,
         type: 3}
     - target: {fileID: 8676531656656310170, guid: 12dca67b743a0d240beff9f939488edd,
         type: 3}
@@ -4616,12 +4638,12 @@ PrefabInstance:
     - target: {fileID: 114803555778296554, guid: 12dca67b743a0d240beff9f939488edd,
         type: 3}
       propertyPath: upgName
-      value: A GOLD COIN
+      value: MORE COINS
       objectReference: {fileID: 0}
     - target: {fileID: 114803555778296554, guid: 12dca67b743a0d240beff9f939488edd,
         type: 3}
       propertyPath: desc
-      value: SPEND MONEY TO MAKE MONEY
+      value: ENEMIES DROP MORE COINS ON DEATH
       objectReference: {fileID: 0}
     - target: {fileID: 114803555778296554, guid: 12dca67b743a0d240beff9f939488edd,
         type: 3}

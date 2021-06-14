@@ -26,6 +26,7 @@ public class UpgradeManager : MonoBehaviour
     }
     public void ApplyUpgrades()
     {
+        Debug.Log("Applying upgrades.");
         foreach(Upgrade upgrade in upgrades.Keys)
         {
             upgrade.ApplyUpgrade(upgrades[upgrade]);

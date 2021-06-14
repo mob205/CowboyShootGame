@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         currentHealth -= amount;
         if(currentHealth <= 0)
         {
-            Debug.Log("ded");
+            //Implement death sequence here
         }
         HealthBar.instance.SetHealthBar(currentHealth / baseHealth);
         StartCoroutine(ApplyInvulnerability());

@@ -24,7 +24,7 @@ public class ShopDisplay : MonoBehaviour
     {
         if (Debug.isDebugBuild && Input.GetKeyDown(KeyCode.Z))
         {
-            CoinCounter.coins += 1000;
+            CoinCounter.AddCoins(1000);
         }
     }
     void CheckSelection()
@@ -48,8 +48,21 @@ public class ShopDisplay : MonoBehaviour
             dispImage.sprite = slot.image;
             dispName.text = slot.upgName;
             dispDesc.text = slot.desc;
-            dispPrice.text = slot.cost.ToString();
-            dispLevel.text = "Level " + slot.level.ToString();
+            if (!slot.upgrade)
+            {
+                dispPrice.text = "0";
+                dispLevel.text = "";
+            }
+            else if(slot.level <= slot.upgrade.maxLevel)
+            {
+                dispPrice.text = slot.cost.ToString();
+                dispLevel.text = "Level " + slot.level.ToString();
+            }
+            else
+            {
+                dispPrice.text = "SOLD OUT";
+                dispLevel.text = "MAX LEVEL";
+            }
         }
     }
 }

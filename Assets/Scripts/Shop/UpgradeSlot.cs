@@ -31,9 +31,9 @@ public class UpgradeSlot : MonoBehaviour
     }
     public void BuyUpgrade()
     {
-        if(CoinCounter.coins >= cost)
+        if (CoinCounter.Coins >= cost && level <= upgrade.maxLevel)
         {
-            CoinCounter.coins -= cost;
+            CoinCounter.RemoveCoins(cost);
             UpgradeManager.instance.AddUpgrade(upgrade, level);
             level++;
             UpdateCost();
