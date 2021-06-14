@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinUpgrade : Upgrade
+public class HealthUpgrade : Upgrade
 {
     public override void ApplyUpgrade(int level)
     {
-        CoinCounter.coinModifier = 1 + (coefficient * level);
+        PlayerController.instance.baseHealth += coefficient * level;
     }
 }

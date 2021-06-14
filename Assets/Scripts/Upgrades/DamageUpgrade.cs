@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinUpgrade : Upgrade
+public class DamageUpgrade : Upgrade
 {
     public override void ApplyUpgrade(int level)
     {
-        CoinCounter.coinModifier = 1 + (coefficient * level);
+        FindObjectOfType<GunController>().damage += coefficient * level;
     }
 }

@@ -17,10 +17,8 @@ public class GunController : MonoBehaviour
     Camera mainCamera;
     PlayerController player;
 
-    const float Left = 180f;
-    const float Right = 0f;
 
-    float startingY, startingZ;
+    [HideInInspector] public float startingY, startingZ;
     bool canShoot = true;
 
     void Start()
@@ -29,7 +27,6 @@ public class GunController : MonoBehaviour
         mainCamera = Camera.main;
         startingY = transform.eulerAngles.y;
         startingZ = transform.eulerAngles.z;
-        Debug.Log("Gun controller started.");
     }
 
     void Update()
@@ -44,7 +41,7 @@ public class GunController : MonoBehaviour
     {
         if (Input.mousePosition.x < mainCamera.WorldToScreenPoint(player.transform.position).x)
         {
-            transform.localRotation = Quaternion.Euler(new Vector3(180, startingY, startingZ));
+            transform.localRotation = Quaternion.Euler(new Vector3(180, startingY, -startingZ));
         }
         else
         {

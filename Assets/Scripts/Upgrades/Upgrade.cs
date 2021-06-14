@@ -6,7 +6,7 @@ public abstract class Upgrade : MonoBehaviour
 {
     public int costFactor;
     public int maxLevel = 99;
-
+    public float coefficient;
     public virtual int GetCost(int level)
     {
         return costFactor * level;

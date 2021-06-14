@@ -7,13 +7,10 @@ public class Enemy : MonoBehaviour
 {
     [Header("General")]
     [SerializeField] ParticleSystem deathParticles;
-    [SerializeField] LayerMask explosionLayers;
 
     [Header("Stats")]
     [SerializeField] float baseHealth;
     [SerializeField] float moveSpeed;
-    //[SerializeField] float deathExplosionRadius;
-    //[SerializeField] float explosionDamage = 10;
     [SerializeField] public float damage = 10f;
 
 
@@ -71,20 +68,10 @@ public class Enemy : MonoBehaviour
     }
     virtual protected void Die()
     {
-        //var hitEnemies = Physics2D.OverlapCircleAll(transform.position, deathExplosionRadius, explosionLayers);
-        //foreach(Collider2D enemy in hitEnemies)
-        //{
-        //    enemy.GetComponent<Enemy>().Damage(explosionDamage);
-        //}
-
-        EnemySpawner.instance.OnEnemyDeath();
+        EnemySpawner.instance.TriggerEnemyDeath(this);
         deathParticles.transform.parent = null;
         deathParticles.Play();
         Destroy(deathParticles.gameObject, deathParticles.main.duration);
         Destroy(gameObject);
     }
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.DrawWireSphere(transform.position, deathExplosionRadius);
-    //}
 }

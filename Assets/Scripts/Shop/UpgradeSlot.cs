@@ -9,7 +9,7 @@ public class UpgradeSlot : MonoBehaviour
     public Upgrade upgrade;
     public Sprite image;
     public string upgName = "OUT OF STOCK";
-    public string desc = "NO ITEMS HERE. SORRY!";
+    [TextArea] public string desc = "NO ITEMS HERE. SORRY!";
     public int level = 1;
     [HideInInspector] public int cost;
 

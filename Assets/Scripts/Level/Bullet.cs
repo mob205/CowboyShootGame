@@ -10,11 +10,6 @@ public class Bullet : MonoBehaviour
 
     public ParticleSystem onHitParticles;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         Move();

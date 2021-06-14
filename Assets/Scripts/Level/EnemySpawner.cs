@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
 
     int currentEnemyCount;
+
+    public event EventHandler<Enemy> OnEnemyDeath;
 
     // Start is called before the first frame update
     private void Awake()
@@ -57,8 +61,9 @@ public class EnemySpawner : MonoBehaviour
         Vector2 randomPosition = new Vector2(Random.Range(-box.size.x / 2, box.size.x / 2), Random.Range(-box.size.y / 2, box.size.y / 2));
         return (Vector2)box.transform.position + randomPosition;
     }
-    public void OnEnemyDeath()
+    public void TriggerEnemyDeath(Enemy e)
     {
         currentEnemyCount--;
+        OnEnemyDeath?.Invoke(this, e);
     }
 }

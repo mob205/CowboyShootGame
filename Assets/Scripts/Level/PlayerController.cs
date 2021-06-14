@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public const float Right = 1;
 
     [SerializeField] float playerSpeed;
-    [SerializeField] float baseHealth;
+    [SerializeField] public float baseHealth;
     [SerializeField] float invulnTime;
 
     float currentHealth;
