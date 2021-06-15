@@ -15,10 +15,10 @@ public class LevelManager : MonoBehaviour
     [HideInInspector] public float maxEnemySpawnMod;
     [HideInInspector] public float enemyPerLevelMod;
 
-    public const float healthIncrease = 0.2f;
-    public const float damageIncrease = 0.15f;
-    public const float maxEnemySpawnIncrease = 0.25f;
-    public const int enemyPerLevelIncrease = 1;
+    [SerializeField] private float healthIncrease = 0.2f;
+    [SerializeField] private float damageIncrease = 0.15f;
+    [SerializeField] private float maxEnemySpawnIncrease = 0.25f;
+    [SerializeField] private int enemyPerLevelIncrease = 1;
 
     int level = 1;
     Coroutine loadLevelCorout;

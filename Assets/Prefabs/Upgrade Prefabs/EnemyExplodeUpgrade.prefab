@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fde70fb800a5644c8c8ebd6d5d91e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costFactor: 1000
+  costFactor: 750
   maxLevel: 3
   coefficient: 0.5
   explosionRadius: 2

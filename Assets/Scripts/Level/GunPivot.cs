@@ -24,15 +24,6 @@ public class GunPivot : MonoBehaviour
         mousePos.y -= pivotPos.y;
 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        //float x;
-        //if (angle > 90 || angle < -90)
-        //{
-        //    x = 180;
-        //    angle = -angle;
-        //} else
-        //{
-        //    x = 0;
-        //}
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }

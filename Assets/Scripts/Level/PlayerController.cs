@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float baseHealth;
     [SerializeField] float invulnTime;
 
-    float currentHealth;
+    public float currentHealth;
     bool isInvuln;
 
     Camera mainCamera;

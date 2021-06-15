@@ -7,5 +7,6 @@ public class HealthUpgrade : Upgrade
     public override void ApplyUpgrade(int level)
     {
         PlayerController.instance.baseHealth += coefficient * level;
+        PlayerController.instance.currentHealth += coefficient * level;
     }
 }

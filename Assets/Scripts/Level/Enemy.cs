@@ -13,6 +13,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] public float damage = 10f;
 
+    [Header("Rewards")]
+    public int minBaseCoins;
+    public int maxBaseCoins;
+
 
 
     const float Left = 0;

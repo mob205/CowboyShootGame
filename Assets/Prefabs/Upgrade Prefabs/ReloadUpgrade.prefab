@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcec0c28d0067a445975e05b35054126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costFactor: 500
+  costFactor: 250
   maxLevel: 99
   coefficient: 1.15
