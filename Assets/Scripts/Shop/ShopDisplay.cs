@@ -24,7 +24,7 @@ public class ShopDisplay : MonoBehaviour
     {
         if (Debug.isDebugBuild && Input.GetKeyDown(KeyCode.Z))
         {
-            CoinCounter.AddCoins(1000);
+            CoinCounter.AddCoins(100000);
         }
     }
     void CheckSelection()

@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   costFactor: 500
-  maxLevel: 99
-  coefficient: 45
+  maxLevel: 10
+  coefficient: 36
