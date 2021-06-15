@@ -6,7 +6,11 @@ public class ReloadUpgrade : Upgrade
 {
     public override void ApplyUpgrade(int level)
     {
-        var playerGun = FindObjectOfType<GunController>();
-        playerGun.reloadTime = Mathf.Pow(coefficient, -level);
+        var guns = FindObjectsOfType<GunController>();
+        var reloadTime = Mathf.Pow(coefficient, -level);
+        foreach(var gun in guns)
+        {
+            gun.reloadTime = reloadTime;
+        }
     }
 }

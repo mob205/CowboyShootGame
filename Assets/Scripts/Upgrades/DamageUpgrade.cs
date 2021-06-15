@@ -6,6 +6,10 @@ public class DamageUpgrade : Upgrade
 {
     public override void ApplyUpgrade(int level)
     {
-        FindObjectOfType<GunController>().damage += coefficient * level;
+        var guns = FindObjectsOfType<GunController>();
+        foreach(var gun in guns)
+        {
+            gun.damage += coefficient * level;
+        }
     }
 }
