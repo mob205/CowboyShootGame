@@ -173,7 +173,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 1022229543}
   parent: {fileID: 4884129029265684721}
   damage: 5
-  bulletSpeed: 7
+  bulletSpeed: 6
   reloadTime: 1
   bulletLifetime: 5
   startingY: 0
@@ -5034,6 +5034,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathParticles: {fileID: 2364996449480807438}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
   baseHealth: 15
   moveSpeed: 4
   damage: 5

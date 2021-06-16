@@ -34,7 +34,6 @@ public class Enemy : MonoBehaviour, IDamageable
         anim = GetComponent<Animator>();
         health = baseHealth * LevelManager.instance.healthMod;
         damage *= LevelManager.instance.damageMod;
-        Debug.Log(LevelManager.instance.damageMod);
     }
 
     virtual protected void Update()

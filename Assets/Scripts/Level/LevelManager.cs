@@ -34,9 +34,6 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    void Start()
-    {
         CalculateValues();
     }
     public void StartLevel()

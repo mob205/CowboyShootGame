@@ -4854,6 +4854,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathParticles: {fileID: 2364996449480807438}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
   baseHealth: 15
   moveSpeed: 6
   damage: 10
