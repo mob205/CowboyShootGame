@@ -13,9 +13,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float maxSpawnTime = 3f;
     [SerializeField] int maxEnemies = 10;
     [SerializeField] float defaultEnemyAmount = 15;
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] EnemyMeta[] enemies;
 
     int currentEnemyCount;
+    int totalEnemyWeight;
+    List<EnemyMeta> spawnableEnemies = new List<EnemyMeta>();
 
     public event EventHandler<Enemy> OnEnemyDeath;
 
@@ -26,11 +28,31 @@ public class EnemySpawner : MonoBehaviour
     }
     void Start()
     {
+        foreach (var enemyMeta in enemies)
+        {
+            if (LevelManager.instance.GetLevel() > enemyMeta.firstLevelAppears)
+            {
+                totalEnemyWeight += enemyMeta.spawnWeight;
+                spawnableEnemies.Add(enemyMeta);
+            }
+        }
         StartSpawning();
     }
-    void Update()
+    private Enemy GetEnemySpawn()
     {
-        
+        var random = Mathf.Floor(Random.Range(0, totalEnemyWeight));
+        var counter = totalEnemyWeight;
+
+        for (var i = 0; i < spawnableEnemies.Count; i++)
+        {
+            counter -= spawnableEnemies[i].spawnWeight;
+            if(random >= counter)
+            {
+                return spawnableEnemies[i].enemy;
+            }
+        }
+        Debug.Log("No enemy spawn found.");
+        return null;
     }
     public void StartSpawning()
     {
@@ -43,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
         {
             if(currentEnemyCount < (maxEnemies * LevelManager.instance.maxEnemySpawnMod) && enemiesSpawned < amount)
             {
-                Instantiate(enemyPrefab, GetRandomPosition(), Quaternion.identity);
+                Instantiate(GetEnemySpawn(), GetRandomPosition(), Quaternion.identity);
                 currentEnemyCount++;
                 enemiesSpawned++;
             }

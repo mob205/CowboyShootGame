@@ -15,8 +15,6 @@ public class GunController : MonoBehaviour
     public float reloadTime;
     [SerializeField] float bulletLifetime;
 
-    Camera mainCamera;
-    Vector2 gunTarget;
     GunPivot pivot;
 
     [HideInInspector] public float startingY, startingZ;
@@ -24,7 +22,6 @@ public class GunController : MonoBehaviour
 
     void Start()
     {
-        mainCamera = Camera.main;
         startingY = transform.eulerAngles.y;
         startingZ = transform.eulerAngles.z;
         pivot = GetComponentInParent<GunPivot>();
