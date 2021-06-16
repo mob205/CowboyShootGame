@@ -7,6 +7,7 @@ public class GunController : MonoBehaviour
 
     [SerializeField] Bullet bulletPrefab;
     [SerializeField] Transform bulletSpawn;
+    [SerializeField] GameObject parent;
 
     [Header("Stats")]
     public float damage;
@@ -15,31 +16,27 @@ public class GunController : MonoBehaviour
     [SerializeField] float bulletLifetime;
 
     Camera mainCamera;
-    PlayerController player;
-
+    Vector2 gunTarget;
+    GunPivot pivot;
 
     [HideInInspector] public float startingY, startingZ;
     bool canShoot = true;
 
     void Start()
     {
-        player = PlayerController.instance;
         mainCamera = Camera.main;
         startingY = transform.eulerAngles.y;
         startingZ = transform.eulerAngles.z;
+        pivot = GetComponentInParent<GunPivot>();
     }
 
     void Update()
     {
         RotateGun();
-        if (Input.GetAxisRaw("Fire1") == 1)
-        {
-            Fire();
-        }
     }
     void RotateGun()
     {
-        if (Input.mousePosition.x < mainCamera.WorldToScreenPoint(player.transform.position).x)
+        if (pivot.target.x < parent.transform.position.x)
         {
             transform.localRotation = Quaternion.Euler(new Vector3(180, startingY, -startingZ));
         }
@@ -48,12 +45,12 @@ public class GunController : MonoBehaviour
             transform.localRotation = Quaternion.Euler(new Vector3(0, startingY, startingZ));
         }
     }
-    void Fire()
+    public void Fire()
     {
         if (canShoot)
         {
             var bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
-            bullet.shooter = player.gameObject;
+            bullet.shooter = parent.gameObject;
             bullet.damage = damage;
             bullet.speed = bulletSpeed;
             Destroy(bullet.gameObject, bulletLifetime);

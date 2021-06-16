@@ -6,8 +6,9 @@ public class GunCountUpgrade : Upgrade
 {
     public override void ApplyUpgrade(int level)
     {
-        var pivot = FindObjectOfType<GunPivot>();
-        var gun = FindObjectOfType<GunController>();
+        var player = FindObjectOfType<PlayerShooting>();
+        var pivot = player.pivot;
+        var gun = player.guns[0];
         var radius = gun.transform.localPosition.x;
         float angle;
         int j = 1;
@@ -31,5 +32,6 @@ public class GunCountUpgrade : Upgrade
             gunClone.transform.rotation = rot;
             gunClone.startingZ = -angle;
         }
+        player.SetGuns();
     }
 }

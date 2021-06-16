@@ -5,6 +5,7 @@ using UnityEngine;
 public class GunPivot : MonoBehaviour
 {
     Camera mainCamera;
+    public Vector3 target;
 
     private void Start()
     {
@@ -15,15 +16,22 @@ public class GunPivot : MonoBehaviour
     {
         FollowMouse();
     }
+    public void SetTarget(Vector3 newTarget) 
+    {
+        target = newTarget;
+    }
     void FollowMouse()
     {
-        var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         var pivotPos = transform.position;
 
-        mousePos.x -= pivotPos.x;
-        mousePos.y -= pivotPos.y;
+        target.x -= pivotPos.x;
+        target.y -= pivotPos.y;
 
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Debug.Log($"Target Coords: ({target.x}, {target.y})");
+        Debug.Log($"Mouse pos coords: ({mousePos.x}, {mousePos.y})");
+
+        float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }

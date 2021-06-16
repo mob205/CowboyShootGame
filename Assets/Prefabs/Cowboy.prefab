@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 4218352566889762407}
   - component: {fileID: 4218352566889762328}
   - component: {fileID: 4218352566889762405}
+  - component: {fileID: 114767464699412284}
   - component: {fileID: 4218352566889762406}
   - component: {fileID: 4218352566889762404}
   - component: {fileID: 4218352566889762403}
@@ -173,6 +174,21 @@ MonoBehaviour:
   playerSpeed: 10
   baseHealth: 20
   invulnTime: 2
+  currentHealth: 0
+--- !u!114 &114767464699412284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4218352566889762329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f078683ba210e0d4e910353d50115439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guns: []
+  pivot: {fileID: 0}
 --- !u!50 &4218352566889762406
 Rigidbody2D:
   serializedVersion: 4
@@ -325,7 +341,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114529341054562468, guid: f77c7165bb0b920428a93527ff241ecd,
     type: 3}
   bulletSpawn: {fileID: 4218352565966666569}
+  parent: {fileID: 0}
   damage: 10
   bulletSpeed: 7
   reloadTime: 1
   bulletLifetime: 5
+  startingY: 0
+  startingZ: 0

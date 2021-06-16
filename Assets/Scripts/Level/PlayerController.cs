@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
         if(animator != null)
             ProcessAnimations();
     }
-    
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
