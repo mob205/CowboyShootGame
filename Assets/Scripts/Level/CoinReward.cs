@@ -8,14 +8,8 @@ public class CoinReward : MonoBehaviour
     {
         EnemySpawner.instance.OnEnemyDeath += RewardCoins;
     }
-
-    void Update()
-    {
-        
-    }
     void RewardCoins(object sender, Enemy e)
     {
-        Debug.Log("adding coins");
         CoinCounter.AddCoins(Random.Range(e.minBaseCoins, e.maxBaseCoins));
     }
 }

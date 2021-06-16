@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (var enemyMeta in enemies)
         {
-            if (LevelManager.instance.GetLevel() > enemyMeta.firstLevelAppears)
+            if (LevelManager.instance.GetLevel() >= enemyMeta.firstLevelAppears)
             {
                 totalEnemyWeight += enemyMeta.spawnWeight;
                 spawnableEnemies.Add(enemyMeta);

@@ -20,7 +20,7 @@ public class GunController : MonoBehaviour
     [HideInInspector] public float startingY, startingZ;
     bool canShoot = true;
 
-    void Start()
+    void Awake()
     {
         startingY = transform.eulerAngles.y;
         startingZ = transform.eulerAngles.z;

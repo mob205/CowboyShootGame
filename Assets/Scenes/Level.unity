@@ -6395,6 +6395,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6399886689602438453, guid: 4e2981bab5112f14580845aadbe4f390,
         type: 3}
+      propertyPath: enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399886689602438453, guid: 4e2981bab5112f14580845aadbe4f390,
+        type: 3}
       propertyPath: spawnAreas.Array.data[0]
       value: 
       objectReference: {fileID: 301134926}
@@ -6403,6 +6408,33 @@ PrefabInstance:
       propertyPath: spawnAreas.Array.data[1]
       value: 
       objectReference: {fileID: 883527611}
+    - target: {fileID: 6399886689602438453, guid: 4e2981bab5112f14580845aadbe4f390,
+        type: 3}
+      propertyPath: enemies.Array.data[0].enemy
+      value: 
+      objectReference: {fileID: 4884129029265684725, guid: 5e03df7ef66e32a43bea1457f1d39f9c,
+        type: 3}
+    - target: {fileID: 6399886689602438453, guid: 4e2981bab5112f14580845aadbe4f390,
+        type: 3}
+      propertyPath: enemies.Array.data[1].enemy
+      value: 
+      objectReference: {fileID: 4884129029265684725, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+    - target: {fileID: 6399886689602438453, guid: 4e2981bab5112f14580845aadbe4f390,
+        type: 3}
+      propertyPath: enemies.Array.data[1].spawnWeight
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399886689602438453, guid: 4e2981bab5112f14580845aadbe4f390,
+        type: 3}
+      propertyPath: enemies.Array.data[0].spawnWeight
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6399886689602438453, guid: 4e2981bab5112f14580845aadbe4f390,
+        type: 3}
+      propertyPath: enemies.Array.data[0].firstLevelAppears
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6399886689602438454, guid: 4e2981bab5112f14580845aadbe4f390,
         type: 3}
       propertyPath: m_LocalPosition.x
