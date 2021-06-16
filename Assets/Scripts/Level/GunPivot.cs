@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class GunPivot : MonoBehaviour
 {
-    Camera mainCamera;
-    public Vector3 target;
+    [HideInInspector] public Vector3 target;
 
     private void Start()
     {
-        mainCamera = Camera.main;
+        FollowMouse();
     }
-
     void Update()
     {
         FollowMouse();
@@ -26,10 +24,6 @@ public class GunPivot : MonoBehaviour
 
         target.x -= pivotPos.x;
         target.y -= pivotPos.y;
-
-        var mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log($"Target Coords: ({target.x}, {target.y})");
-        Debug.Log($"Mouse pos coords: ({mousePos.x}, {mousePos.y})");
 
         float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));

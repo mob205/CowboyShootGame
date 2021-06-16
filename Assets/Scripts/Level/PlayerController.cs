@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
     public static PlayerController instance;
 
@@ -39,15 +39,7 @@ public class PlayerController : MonoBehaviour
         if(animator != null)
             ProcessAnimations();
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            var enemy = collision.GetComponent<Enemy>();
-            Damage(enemy.damage);
-        }
-    }
-    void Damage(float amount)
+    public void Damage(float amount)
     {
         if (isInvuln) { return; }
         currentHealth -= amount;

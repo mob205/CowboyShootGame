@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
     [Header("General")]
     [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] LayerMask layerMask;
 
     [Header("Stats")]
     [SerializeField] float baseHealth;
@@ -33,6 +34,7 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         health = baseHealth * LevelManager.instance.healthMod;
         damage *= LevelManager.instance.damageMod;
+        Debug.Log(LevelManager.instance.damageMod);
     }
 
     virtual protected void Update()
@@ -53,12 +55,11 @@ public class Enemy : MonoBehaviour
             anim.SetFloat("Direction", Right);
         }
     }
-    virtual protected void OnTriggerEnter2D(Collider2D collision)
+    virtual protected void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Bullet"))
+        if (layerMask == (layerMask | (1 << collision.gameObject.layer)))
         {
-            var bullet = collision.GetComponent<Bullet>();
-            Damage(bullet.damage);
+            collision.GetComponent<IDamageable>().Damage(damage);
         }
     }
     virtual public void Damage(float damage)

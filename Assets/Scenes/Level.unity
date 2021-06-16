@@ -2696,7 +2696,7 @@ MonoBehaviour:
   - {fileID: 883527611}
   minSpawnTime: 0.5
   maxSpawnTime: 1.5
-  maxEnemies: 10
+  maxEnemies: 1
   defaultEnemyAmount: 10
   enemyPrefab: {fileID: 4884129029265684721, guid: 5e03df7ef66e32a43bea1457f1d39f9c,
     type: 3}
@@ -3631,6 +3631,93 @@ BoxCollider2D:
     type: 3}
   m_PrefabInstance: {fileID: 998007555}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1049157446
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 718163772, guid: 4effb366706986145b873c539853a054, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484659502, guid: 4effb366706986145b873c539853a054, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684721, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: m_Name
+      value: RangedRobot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684723, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684723, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684723, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684723, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684723, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684723, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684723, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684723, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684723, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684723, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684723, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684725, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884129029265684725, guid: 4effb366706986145b873c539853a054,
+        type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4effb366706986145b873c539853a054, type: 3}
 --- !u!1 &1057967707
 GameObject:
   m_ObjectHideFlags: 0
@@ -6246,6 +6333,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cowboy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218352566889762329, guid: fc890dd14cc1ccd41adbda18645f9e7c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218352566889762405, guid: fc890dd14cc1ccd41adbda18645f9e7c,
+        type: 3}
+      propertyPath: invulnTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4218352566889762407, guid: fc890dd14cc1ccd41adbda18645f9e7c,
         type: 3}
