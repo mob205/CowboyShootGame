@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerController : MonoBehaviour, IDamageable
+public class PlayerController : MonoBehaviour, IDamageable, IDamaging
 {
     public static PlayerController instance;
 
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     Camera mainCamera;
     Rigidbody2D rb;
     Animator animator;
+
+    public event EventHandler<float> DamageDealtEventHandler;
 
     private void Awake()
     {
@@ -49,6 +52,15 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
         HealthBar.instance.SetHealthBar(currentHealth / baseHealth);
         StartCoroutine(ApplyInvulnerability());
+    }
+    public void Heal(float amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, baseHealth);
+        HealthBar.instance.SetHealthBar(currentHealth / baseHealth);
+    }
+    public void OnDamageDealt(object source, float amount)
+    {
+        DamageDealtEventHandler?.Invoke(source, amount);
     }
     IEnumerator ApplyInvulnerability()
     {

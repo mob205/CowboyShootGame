@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +20,14 @@ public class FadeToBlack : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+    private void Update()
+    {
+        if (fadeIn == null && fadeOut == null && panel.alpha > 0)
+        {
+            Debug.Log("Detected problem.");
+            panel.alpha = 1;
         }
     }
     void Start()
@@ -52,9 +60,5 @@ public class FadeToBlack : MonoBehaviour
             panel.alpha -= Time.deltaTime * fadeSpeed;
             yield return null;
         }
-    }
-    void Update()
-    {
-        
     }
 }

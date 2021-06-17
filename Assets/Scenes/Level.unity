@@ -6435,6 +6435,11 @@ PrefabInstance:
       propertyPath: enemies.Array.data[0].firstLevelAppears
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6399886689602438453, guid: 4e2981bab5112f14580845aadbe4f390,
+        type: 3}
+      propertyPath: enemies.Array.data[1].firstLevelAppears
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6399886689602438454, guid: 4e2981bab5112f14580845aadbe4f390,
         type: 3}
       propertyPath: m_LocalPosition.x

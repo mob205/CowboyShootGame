@@ -8,6 +8,10 @@ public class EnemyExplodeUpgrade : Upgrade
     [SerializeField] LayerMask explosionLayers;
 
     float explosionDamage;
+    public override int GetCost(int level)
+    {
+        return Mathf.FloorToInt(costFactor * Mathf.Pow(2, level));
+    }
     public override void ApplyUpgrade(int level)
     {
         EnemySpawner.instance.OnEnemyDeath += TriggerExplosion;

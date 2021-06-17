@@ -26,8 +26,16 @@ public class UpgradeSlot : MonoBehaviour
         if (upgrade)
         {
             cost = upgrade.GetCost(level);
+            costText.text = cost.ToString();
         }
-        costText.text = cost.ToString();
+        else
+        {
+            return;
+        }
+        if (level > upgrade.maxLevel)
+        {
+            costText.text = "MAX";
+        }
     }
     public void BuyUpgrade()
     {

@@ -24,6 +24,12 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject != shooter && layerMask == (layerMask | (1 << collision.gameObject.layer)))
         {
+            var damager = shooter.GetComponent<IDamaging>();
+            if (damager != null)
+            {
+                damager.OnDamageDealt(this, damage);
+            }
+
             collision.gameObject.GetComponent<IDamageable>().Damage(damage);
             onHitParticles.transform.parent = null;
             onHitParticles.Play();
