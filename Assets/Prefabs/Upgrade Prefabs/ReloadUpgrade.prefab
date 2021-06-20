@@ -46,3 +46,4 @@ MonoBehaviour:
   costFactor: 250
   maxLevel: 99
   coefficient: 1.15
+  volumeCoefficient: 1.055

@@ -50,5 +50,10 @@ MonoBehaviour:
   maxSpawnTime: 2
   maxEnemies: 10
   defaultEnemyAmount: 10
-  enemyPrefab: {fileID: 4884129029265684721, guid: 5e03df7ef66e32a43bea1457f1d39f9c,
-    type: 3}
+  enemies:
+  - enemy: {fileID: 4884129029265684725, guid: 5e03df7ef66e32a43bea1457f1d39f9c, type: 3}
+    spawnWeight: 45
+    firstLevelAppears: 1
+  - enemy: {fileID: 4884129029265684725, guid: 4effb366706986145b873c539853a054, type: 3}
+    spawnWeight: 20
+    firstLevelAppears: 2

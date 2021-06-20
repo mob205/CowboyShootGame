@@ -8,6 +8,7 @@ public class GunController : MonoBehaviour
     [SerializeField] Bullet bulletPrefab;
     [SerializeField] Transform bulletSpawn;
     [SerializeField] GameObject parent;
+    [SerializeField] public AudioSource shootSound;
 
     [Header("Stats")]
     public float damage;
@@ -52,6 +53,7 @@ public class GunController : MonoBehaviour
             bullet.speed = bulletSpeed;
             Destroy(bullet.gameObject, bulletLifetime);
             StartCoroutine(Reload());
+            shootSound.PlayOneShot(shootSound.clip);
         }
     }
     IEnumerator Reload()

@@ -10,6 +10,10 @@ public class GunCountUpgrade : Upgrade
         var pivot = player.pivot;
         var gun = player.guns[0];
         var radius = gun.transform.localPosition.x;
+
+        // Limit the volume of all guns firing at once
+        gun.shootSound.volume /= level;
+
         float angle;
         int j = 1;
         for(int i = 1; i < (level+1); i++)
@@ -23,9 +27,8 @@ public class GunCountUpgrade : Upgrade
             {
                 angle = -coefficient * j;
             }
-            //Debug.Log($"Angle {i}: {angle}");
+            // Sets the gun clone to a position as if the clone was rotated about the pivot point {angle} degrees from the original gun.
             Vector2 pos = new Vector2(radius * Mathf.Cos(angle * Mathf.Deg2Rad), radius * Mathf.Sin(angle * Mathf.Deg2Rad));
-            //Debug.Log($"Calculated X{i}: {pos.x} | Calculated Y{i}: {pos.y}");
             Quaternion rot = Quaternion.Euler(0, 180, -angle);
             var gunClone = Instantiate(gun, pivot.transform);
             gunClone.transform.localPosition = pos;
