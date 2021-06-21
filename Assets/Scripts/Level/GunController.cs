@@ -28,7 +28,7 @@ public class GunController : MonoBehaviour
         pivot = GetComponentInParent<GunPivot>();
     }
 
-    void Update()
+    void LateUpdate()
     {
         RotateGun();
     }
