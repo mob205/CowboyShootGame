@@ -15,12 +15,12 @@ public class UpgradeSlot : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI costText;
     [SerializeField] Image itemImage;
+    [SerializeField] AudioSource purchaseSound;
     void Start()
     {
         UpdateCost();
         itemImage.sprite = image;
     }
-    
     void UpdateCost()
     {
         if (upgrade)
@@ -45,6 +45,7 @@ public class UpgradeSlot : MonoBehaviour
             UpgradeManager.instance.AddUpgrade(upgrade, level);
             level++;
             UpdateCost();
+            purchaseSound.PlayOneShot(purchaseSound.clip);
         }
     }
     // Update is called once per frame

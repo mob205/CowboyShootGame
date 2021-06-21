@@ -19,7 +19,7 @@ public class GunController : MonoBehaviour
     GunPivot pivot;
 
     [HideInInspector] public float startingY, startingZ;
-    bool canShoot = true;
+    public bool canShoot = true;
 
     void Awake()
     {

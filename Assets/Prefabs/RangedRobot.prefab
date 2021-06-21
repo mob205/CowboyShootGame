@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 1484659503}
   - component: {fileID: 1484659505}
   - component: {fileID: 1484659504}
+  - component: {fileID: 5625883861295854093}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -172,12 +173,110 @@ MonoBehaviour:
     type: 3}
   bulletSpawn: {fileID: 1022229543}
   parent: {fileID: 4884129029265684721}
+  shootSound: {fileID: 5625883861295854093}
   damage: 5
   bulletSpeed: 6
   reloadTime: 1
   bulletLifetime: 5
   startingY: 0
   startingZ: 0
+  canShoot: 1
+--- !u!82 &5625883861295854093
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484659502}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d8f0f43c76e01ec46bae2007ea8b56b0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.502
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2313080417041515059
 GameObject:
   m_ObjectHideFlags: 0
@@ -4945,11 +5044,11 @@ GameObject:
   - component: {fileID: 4884129029265684723}
   - component: {fileID: 4884129029265684722}
   - component: {fileID: 4884129029265684725}
+  - component: {fileID: 711146645}
   - component: {fileID: 4884129029265684724}
   - component: {fileID: 4884129029265684726}
   - component: {fileID: 4884129029265684727}
   - component: {fileID: 522200962}
-  - component: {fileID: 711146645}
   m_Layer: 8
   m_Name: RangedRobot
   m_TagString: Enemy
@@ -5042,6 +5141,19 @@ MonoBehaviour:
   damage: 5
   minBaseCoins: 25
   maxBaseCoins: 75
+--- !u!114 &711146645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4884129029265684721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a109dee26f7c7b41a0563c1cfb89125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reloadDeviation: 0.5
 --- !u!50 &4884129029265684724
 Rigidbody2D:
   serializedVersion: 4
@@ -5124,15 +5236,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 1.15}
   m_EdgeRadius: 0
---- !u!114 &711146645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4884129029265684721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a109dee26f7c7b41a0563c1cfb89125, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -63,7 +63,8 @@ public class EnemySpawner : MonoBehaviour
         var enemiesSpawned = 0;
         while (true)
         {
-            if(currentEnemyCount < (maxEnemies * LevelManager.instance.maxEnemySpawnMod) && enemiesSpawned < amount)
+            yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
+            if (currentEnemyCount < (maxEnemies * LevelManager.instance.maxEnemySpawnMod) && enemiesSpawned < amount)
             {
                 Instantiate(GetEnemySpawn(), GetRandomPosition(), Quaternion.identity);
                 currentEnemyCount++;
@@ -74,7 +75,6 @@ public class EnemySpawner : MonoBehaviour
                 StartCoroutine(LevelManager.instance.EndLevel());
                 break;
             }
-            yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
         }
     }
     private Vector2 GetRandomPosition()
