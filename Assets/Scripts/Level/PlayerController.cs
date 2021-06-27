@@ -48,7 +48,8 @@ public class PlayerController : MonoBehaviour, IDamageable, IDamaging
         currentHealth -= amount;
         if(currentHealth <= 0)
         {
-            //Implement death sequence here
+            Debug.Log("Player dead");
+            FindObjectOfType<SceneLoader>().LoadScene("TempDefeat");
         }
         HealthBar.instance.SetHealthBar(currentHealth / baseHealth);
         StartCoroutine(ApplyInvulnerability());

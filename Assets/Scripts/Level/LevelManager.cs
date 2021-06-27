@@ -66,7 +66,7 @@ public class LevelManager : MonoBehaviour
         level += 1;
         FadeToBlack.instance.Fade(1f, 1f);
         yield return new WaitForSeconds(sceneChangeDelay);
-        SceneManager.LoadScene("LevelMenu");
+        SceneManager.LoadScene("TempVictory");
     }
     public int GetLevel()
     {

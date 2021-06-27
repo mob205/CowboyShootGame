@@ -726,6 +726,7 @@ GameObject:
   - component: {fileID: 8676531657183269139}
   - component: {fileID: 8676531657183269138}
   - component: {fileID: 8676531657183269141}
+  - component: {fileID: 7460149192872081298}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -809,7 +810,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.764151, g: 0.35069612, b: 0.1549929, a: 1}
-    m_HighlightedColor: {r: 0.7921569, g: 0.5921569, b: 0.36078432, a: 1}
+    m_HighlightedColor: {r: 0.76470596, g: 0.34901962, b: 0.15686275, a: 1}
     m_PressedColor: {r: 0.7647059, g: 0.34901962, b: 0.15686275, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -827,15 +828,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8676531657183269138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114803555778296554}
-        m_MethodName: BuyUpgrade
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &7460149192872081298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676531657183269143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114803555778296554}
+          m_MethodName: BuyUpgrade
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  delegates: []
