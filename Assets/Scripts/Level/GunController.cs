@@ -34,13 +34,6 @@ public class GunController : MonoBehaviour
     }
     void RotateGun()
     {
-        if(parent.GetComponent<Enemy>())
-        {
-            Debug.Log($"Tank transform: {parent.transform.position.x}");
-            Debug.Log($"Player transform: {PlayerController.instance.transform.position.x}");
-            Debug.Log($"Target transform: {pivot.target.x}");
-            Debug.Log(pivot.target == PlayerController.instance.transform.position);
-        }
         if (pivot.target.x < parent.transform.position.x)
         {
             transform.localRotation = Quaternion.Euler(new Vector3(180, startingY, -startingZ));

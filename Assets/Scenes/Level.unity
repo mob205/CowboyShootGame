@@ -6635,16 +6635,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5406044775728648749, guid: baf923b2800396046a0557199ecfc184,
-        type: 3}
-      propertyPath: bulletSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5406044775728648749, guid: baf923b2800396046a0557199ecfc184,
-        type: 3}
-      propertyPath: reloadTime
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5406044776197485524, guid: baf923b2800396046a0557199ecfc184,
         type: 3}
       propertyPath: m_Name
@@ -6704,31 +6694,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5406044776197485526, guid: baf923b2800396046a0557199ecfc184,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5406044776197485527, guid: baf923b2800396046a0557199ecfc184,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5406044776531771237, guid: baf923b2800396046a0557199ecfc184,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5406044776531771237, guid: baf923b2800396046a0557199ecfc184,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5406044776531771237, guid: baf923b2800396046a0557199ecfc184,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baf923b2800396046a0557199ecfc184, type: 3}
