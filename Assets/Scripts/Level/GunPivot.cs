@@ -10,7 +10,7 @@ public class GunPivot : MonoBehaviour
     {
         FollowMouse();
     }
-    void Update()
+    void LateUpdate()
     {
         FollowMouse();
     }

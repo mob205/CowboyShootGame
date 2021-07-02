@@ -20,18 +20,14 @@ public class Enemy : MonoBehaviour, IDamageable
 
 
 
-    const float Left = 0;
-    const float Right = 1;
 
     Rigidbody2D rb;
-    Animator anim;
 
     float health;
 
     virtual protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         health = baseHealth * LevelManager.instance.healthMod;
         damage *= LevelManager.instance.damageMod;
     }
@@ -44,15 +40,6 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         var direction = (PlayerController.instance.transform.position - transform.position).normalized;
         rb.MovePosition(transform.position + (direction * moveSpeed * Time.deltaTime));
-        
-        if(PlayerController.instance.transform.position.x < transform.position.x)
-        {
-            anim.SetFloat("Direction", Left);
-        }
-        else
-        {
-            anim.SetFloat("Direction", Right);
-        }
     }
     virtual protected void OnTriggerStay2D(Collider2D collision)
     {
