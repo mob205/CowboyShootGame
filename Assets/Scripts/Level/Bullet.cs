@@ -33,7 +33,8 @@ public class Bullet : MonoBehaviour
             {
                 damager.OnDamageDealt(this, damage);
             } 
-            collision.gameObject.GetComponent<IDamageable>().Damage(damage);
+            //collision.gameObject.GetComponent<IDamageable>().Damage(damage);
+            collision.gameObject.GetComponentInParent<IDamageable>().Damage(damage);
             onHitParticles.transform.parent = null;
             onHitParticles.Play();
             Destroy(onHitParticles.gameObject, onHitParticles.main.duration);
