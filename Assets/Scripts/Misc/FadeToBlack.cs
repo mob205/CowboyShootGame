@@ -8,8 +8,8 @@ public class FadeToBlack : MonoBehaviour
 
     CanvasGroup panel;
 
-    Coroutine fadeIn;
-    Coroutine fadeOut;
+    Coroutine fadeCorout;
+
     private void Awake()
     {
         if (instance == null)
@@ -26,27 +26,25 @@ public class FadeToBlack : MonoBehaviour
     {
         panel = GetComponent<CanvasGroup>();
     }
-    public void Fade(float fadeSpeed, float fadeDuration)
+    public void StartFade(float fadeSpeed, float fadeDuration)
     {
-        if(fadeIn != null && fadeOut != null)
+        if(fadeCorout != null)
         {
-            StopCoroutine(fadeIn);
-            StopCoroutine(fadeOut);
+            StopCoroutine(fadeCorout);
         }
-        fadeIn = StartCoroutine(FadeIn(fadeSpeed));
-        fadeOut = StartCoroutine(FadeOut(fadeSpeed, fadeDuration));
+        fadeCorout = StartCoroutine(Fade(fadeSpeed, fadeDuration));
     }
-    IEnumerator FadeIn(float fadeSpeed)
+    IEnumerator Fade(float fadeSpeed, float fadeDuration)
     {
+        // Fade to black
         while (panel.alpha < 1)
         {
             panel.alpha += Time.deltaTime * fadeSpeed;
-            yield return null; 
+            yield return null;
         }
-    }
-    IEnumerator FadeOut(float fadeSpeed, float fadeDuration)
-    {
+        // Wait full duration
         yield return new WaitForSeconds(fadeDuration);
+        // Fade to transparent
         while (panel.alpha > 0)
         {
             panel.alpha -= Time.deltaTime * fadeSpeed;

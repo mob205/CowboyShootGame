@@ -443,7 +443,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
-  baseHealth: 100
+  baseHealth: 80
   moveSpeed: 2
   damage: 15
   minBaseCoins: 0

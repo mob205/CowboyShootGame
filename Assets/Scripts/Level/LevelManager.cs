@@ -44,7 +44,7 @@ public class LevelManager : MonoBehaviour
     }
     IEnumerator LoadLevel()
     {
-        FadeToBlack.instance.Fade(1f, 1f);
+        FadeToBlack.instance.StartFade(1f, 0f);
         yield return new WaitForSeconds(sceneChangeDelay);
         SceneManager.LoadScene("Level");
         loadLevelCorout = null;
@@ -64,7 +64,7 @@ public class LevelManager : MonoBehaviour
     public IEnumerator EndLevel()
     {
         level += 1;
-        FadeToBlack.instance.Fade(1f, 1f);
+        FadeToBlack.instance.StartFade(1f, 1f);
         yield return new WaitForSeconds(sceneChangeDelay);
         SceneManager.LoadScene("TempVictory");
     }
