@@ -22,14 +22,6 @@ public class FadeToBlack : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void Update()
-    {
-        if (fadeIn == null && fadeOut == null && panel.alpha > 0)
-        {
-            Debug.Log("Detected problem.");
-            panel.alpha = 1;
-        }
-    }
     void Start()
     {
         panel = GetComponent<CanvasGroup>();

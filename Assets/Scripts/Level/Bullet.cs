@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     public ParticleSystem onHitParticles;
 
     IDamaging damager;
+    bool hasDamaged;
     private void Start()
     {
         damager = shooter.GetComponent<IDamaging>();
@@ -32,13 +33,19 @@ public class Bullet : MonoBehaviour
             if (damager != null)
             {
                 damager.OnDamageDealt(this, damage);
-            } 
+            }
             //collision.gameObject.GetComponent<IDamageable>().Damage(damage);
-            collision.gameObject.GetComponentInParent<IDamageable>().Damage(damage);
+            if (collision.isTrigger && !hasDamaged)
+            {
+                collision.gameObject.GetComponentInParent<IDamageable>().Damage(damage);
+                hasDamaged = true;
+                Debug.Log($"Damaging {collision.gameObject.name}");
+            }
+            Destroy(gameObject);
             onHitParticles.transform.parent = null;
             onHitParticles.Play();
             Destroy(onHitParticles.gameObject, onHitParticles.main.duration);
-            Destroy(gameObject);
+            
         }
         
     }

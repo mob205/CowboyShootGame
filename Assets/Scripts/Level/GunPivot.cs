@@ -21,11 +21,9 @@ public class GunPivot : MonoBehaviour
     void FollowMouse()
     {
         var pivotPos = transform.position;
+        var rotTarget = new Vector2(target.x - pivotPos.x, target.y - pivotPos.y);
 
-        target.x -= pivotPos.x;
-        target.y -= pivotPos.y;
-
-        float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(rotTarget.y, rotTarget.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }
