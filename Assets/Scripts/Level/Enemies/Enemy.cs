@@ -59,10 +59,10 @@ public class Enemy : MonoBehaviour, IDamageable
     }
     virtual protected void Die()
     {
-        EnemySpawner.instance.TriggerEnemyDeath(this);
         deathParticles.transform.parent = null;
         deathParticles.Play();
         Destroy(deathParticles.gameObject, deathParticles.main.duration);
         Destroy(gameObject);
+        EnemySpawner.instance.TriggerEnemyDeath(this);
     }
 }

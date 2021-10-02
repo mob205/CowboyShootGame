@@ -38,9 +38,12 @@ public class PlayerController : MonoBehaviour, IDamageable, IDamaging
 
     void Update()
     {
-        ProcessMovement();
         if(animator != null)
             ProcessAnimations();
+    }
+    void FixedUpdate()
+    {
+        ProcessMovement();
     }
     public void Damage(float amount)
     {
@@ -72,7 +75,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IDamaging
     void ProcessMovement()
     {
         Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        rb.MovePosition(transform.position + (movement * playerSpeed * Time.deltaTime));
+        rb.MovePosition(transform.position + (movement * playerSpeed * Time.fixedDeltaTime));
         animator.SetBool("IsMoving", (movement.magnitude > 0));
     }
     void ProcessAnimations()

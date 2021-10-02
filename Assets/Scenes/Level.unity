@@ -6523,7 +6523,7 @@ PrefabInstance:
     - target: {fileID: 6399886689602438453, guid: 4e2981bab5112f14580845aadbe4f390,
         type: 3}
       propertyPath: defaultEnemyAmount
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6399886689602438454, guid: 4e2981bab5112f14580845aadbe4f390,
         type: 3}

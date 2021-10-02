@@ -20,9 +20,11 @@ public class EnemyExplodeUpgrade : Upgrade
     void TriggerExplosion(object sender, Enemy e)
     {
         var hitEnemies = Physics2D.OverlapCircleAll(e.transform.position, explosionRadius, explosionLayers);
-        foreach(Collider2D enemy in hitEnemies)
+        foreach(Collider2D enemyCol in hitEnemies)
         {
-            enemy.GetComponent<Enemy>().Damage(explosionDamage);
+            var enemy = enemyCol.GetComponent<Enemy>();
+            if(enemy != null)
+                enemy.GetComponent<Enemy>().Damage(explosionDamage);
         }
     }
 }
