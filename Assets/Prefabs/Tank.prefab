@@ -444,7 +444,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   baseHealth: 80
-  moveSpeed: 2
+  moveSpeed: 0.7
   damage: 15
   minBaseCoins: 200
   maxBaseCoins: 500

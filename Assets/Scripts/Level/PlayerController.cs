@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour, IDamageable, IDamaging
     void ProcessMovement()
     {
         Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        rb.MovePosition(transform.position + (movement * playerSpeed * Time.fixedDeltaTime));
+        rb.MovePosition(transform.position + (playerSpeed * Time.fixedDeltaTime * movement));
         animator.SetBool("IsMoving", (movement.magnitude > 0));
     }
     void ProcessAnimations()

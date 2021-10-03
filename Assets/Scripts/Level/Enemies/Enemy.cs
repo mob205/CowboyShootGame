@@ -32,14 +32,14 @@ public class Enemy : MonoBehaviour, IDamageable
         damage *= LevelManager.instance.damageMod;
     }
 
-    virtual protected void Update()
+    virtual protected void FixedUpdate()
     {
         Move();
     }
     virtual protected void Move()
     {
         var direction = (PlayerController.instance.transform.position - transform.position).normalized;
-        rb.MovePosition(transform.position + (direction * moveSpeed * Time.deltaTime));
+        rb.MovePosition(transform.position + (moveSpeed * Time.fixedDeltaTime * direction));
     }
     virtual protected void OnTriggerStay2D(Collider2D collision)
     {
