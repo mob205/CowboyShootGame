@@ -4861,8 +4861,8 @@ MonoBehaviour:
   baseHealth: 15
   moveSpeed: 2.15
   damage: 10
-  minBaseCoins: 35
-  maxBaseCoins: 90
+  minBaseCoins: 30
+  maxBaseCoins: 80
 --- !u!50 &4884129029265684724
 Rigidbody2D:
   serializedVersion: 4

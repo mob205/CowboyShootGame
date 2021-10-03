@@ -446,8 +446,8 @@ MonoBehaviour:
   baseHealth: 80
   moveSpeed: 0.7
   damage: 15
-  minBaseCoins: 200
-  maxBaseCoins: 500
+  minBaseCoins: 100
+  maxBaseCoins: 200
 --- !u!61 &1125680191758666985
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -5140,8 +5140,8 @@ MonoBehaviour:
   baseHealth: 12
   moveSpeed: 1.5
   damage: 5
-  minBaseCoins: 35
-  maxBaseCoins: 90
+  minBaseCoins: 30
+  maxBaseCoins: 80
 --- !u!114 &711146645
 MonoBehaviour:
   m_ObjectHideFlags: 0
